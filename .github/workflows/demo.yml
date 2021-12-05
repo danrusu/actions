@@ -1,0 +1,26 @@
+name: demo
+
+on: push
+
+
+jobs:
+  demo1: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: heckout
+      - uses: actions/checkout@v2
+
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '14'
+
+      - name: Execution
+      - run: bash demo.sh
+
+      - name: Publish artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: report
+          path: reports/report.txt
