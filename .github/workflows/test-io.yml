@@ -4,7 +4,8 @@ on:
   - workflow_dispatch
 
 jobs:
-  build: 
+  build:
+    timeout-minutes: 10 
     runs-on: ubuntu-latest
 
 
@@ -19,9 +20,11 @@ jobs:
       
       - name: use token
         run: |
-          echo "::debug::Use token from get-token step"
+          echo "::group::TOKEN GROUP"
           echo ${{ steps.get-token.outputs.BUILD_TOKEN}} 
-
+          echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"
+          echo "::end-group::"
+          echo "Out of TOKEN GROUP"
 
 
        
