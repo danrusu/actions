@@ -35,9 +35,24 @@ jobs:
       - name: run always
         id: always
         if: ${{ always() }}
-        run: echo "ALWAYS ${{ steps.always.inputs.name }}" 
+        run: echo ${{ toJSON(job) }} > ./build.json 
+
+      - uses: actions/upload-artifact@v2
         with:
-          name: qatools
+          name: build-context.json
+          path: ./build.json
+  
+  test: 
+    needs: build
+    timeout-minutes: 10 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/downlod-artifact@v2
+        with:
+          name: build-context.json
+          path: ./build.json
+
+      - run: cat ./build.json 
         
 
 
