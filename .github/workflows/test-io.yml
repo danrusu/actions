@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: echo "github.workspace = ${{ github }}"
+      - run: echo "github = ${{ github }}"
       
       - run: echo "::echo::on"
       
