@@ -2,6 +2,7 @@ name: IO
 
 on: 
   - workflow_dispatch
+  - repository_dispatch
 
 jobs:
   build:
@@ -12,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: echo "github = ${{ github }}"
+      - run: echo "github = ${{ toJSON(github) }}"
       
       - run: echo "::echo::on"
       
