@@ -35,7 +35,7 @@ jobs:
       - name: run always
         id: always
         if: ${{ always() }}
-        run: echo '{ "build"&#58; ${{ steps.get-token.outputs.BUILD_TOKEN }} }' > ./build.json 
+        run: echo "{ \"build\"':' ${{ steps.get-token.outputs.BUILD_TOKEN }} }" > ./build.json 
 
       - uses: actions/upload-artifact@v2
         with:
