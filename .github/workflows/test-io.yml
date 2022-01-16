@@ -30,7 +30,7 @@ jobs:
           cat --f
 
       - name: run always
-        if: ${{ always() }}
+        # if: ${{ always() }}
         run: echo "ALWAYS"
 
         
