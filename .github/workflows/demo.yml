@@ -1,13 +1,16 @@
 name: demo
 
-on: [push]
+on: 
+  - push 
+  - workflow_dispatch
 
 jobs:
   demo1: 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
       # - uses: actions/setup-node@v2
       #   with:
@@ -15,6 +18,9 @@ jobs:
 
       - name: Execution
         run: bash demo.sh
+
+      - name: First action
+        uses: ./.github/actions/first-action
 
       - name: Publish artifacts
         uses: actions/upload-artifact@v2

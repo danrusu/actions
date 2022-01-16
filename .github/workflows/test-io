@@ -1,0 +1,28 @@
+name: IO
+
+on: 
+  - workflow_dispatch
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    id: test1
+
+    steps:
+      # - uses: actions/checkout@v2
+      - run: echo "::echo::on"
+      - run: echo "::set-output name=BUILD_TOKEN::1111"
+        id: token
+      - name: test
+        run: |
+          echo ${{ steps.token.output.BUILD_TOKEN}} 
+
+  # test: 
+  #   runs-on: ubuntu-latest
+  #   id: test1
+
+  #   steps:
+  #     - name: test
+  #       run: |
+  #         echo ${{ jobs.test1.output.BUILD_TOKEN}} 
+       
