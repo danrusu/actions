@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - run: echo "github.workspace = ${{ github.workspace }}"
       
       - run: echo "::echo::on"
       
@@ -27,10 +29,10 @@ jobs:
           echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"
           echo "::endgroup::"
           echo "Out of TOKEN GROUP: $TEST"
-          cat --f
+          # cat --f
 
       - name: run always
-        # if: ${{ always() }}
+        if: ${{ always() }}
         run: echo "ALWAYS"
 
         
