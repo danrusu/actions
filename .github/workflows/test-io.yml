@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2
         with:
-          name: build-status.json
+          name: build-status
           path: ./
 
       - run: cat build.json 
