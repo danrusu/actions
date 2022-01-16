@@ -23,7 +23,7 @@ jobs:
           echo "::group::TOKEN GROUP"
           echo ${{ steps.get-token.outputs.BUILD_TOKEN}} 
           echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"
-          echo "::end-group::"
+          echo "::endgroup::"
           echo "Out of TOKEN GROUP"
 
 
