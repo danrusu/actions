@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-context.json
+          name: build-status
           path: build.json
   
   test: 
@@ -57,7 +57,7 @@ jobs:
       - name: cleanup
         uses: geekyeggo/delete-artifact@v1
         with:
-          name: build.json 
+          name: build-status 
 
 
        
