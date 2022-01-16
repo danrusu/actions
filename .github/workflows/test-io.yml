@@ -26,7 +26,7 @@ jobs:
       - name: use token
         run: |
           echo "::group::TOKEN GROUP"
-          echo ${{ steps.get-token.outputs.BUILD_TOKEN}} 
+          echo ${{ steps.get-token.outputs.BUILD_TOKEN }} 
           echo "@@@@@@@@@@@@@@@@@@@@@@@@@@"
           echo "::endgroup::"
           echo "Out of TOKEN GROUP: $TEST"
@@ -35,7 +35,7 @@ jobs:
       - name: run always
         id: always
         if: ${{ always() }}
-        run: echo '{ "build"&#58; 1111 }' > ./build.json 
+        run: echo '{ "build"&#58; ${{ steps.get-token.outputs.BUILD_TOKEN }} }' > ./build.json 
 
       - uses: actions/upload-artifact@v2
         with:
