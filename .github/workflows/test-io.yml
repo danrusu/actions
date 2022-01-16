@@ -11,22 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - run: echo "::echo::on"
+      - run: echo "::echo::off"
       
-      - name: get token
+      - name: get-token
         run: ./token.sh
-        id: token
+        id: get-token
       
       - name: use token
         run: |
-          echo ${{ steps.token.outputs.BUILD_TOKEN}} 
+          echo "::debug::Use token from get-token step"
+          echo ${{ steps.get-token.outputs.BUILD_TOKEN}} 
 
-  # test: 
-  #   runs-on: ubuntu-latest
-  #   id: test1
 
-  #   steps:
-  #     - name: test
-  #       run: |
-  #         echo ${{ jobs.test1.output.BUILD_TOKEN}} 
+
        
