@@ -35,7 +35,7 @@ jobs:
       - name: run always
         id: always
         if: ${{ always() }}
-        run: echo -n ${{ toJSON(job) }} > ./build.json 
+        run: echo '{ "build"&#58; 1111 }' > ./build.json 
 
       - uses: actions/upload-artifact@v2
         with:
