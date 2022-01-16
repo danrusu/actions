@@ -33,9 +33,9 @@ jobs:
           # cat --f
 
       - name: run always
-        id: input-job
+        id: always
         if: ${{ always() }}
-        run: echo "ALWAYS ${{ input-job.inputs.name }}" 
+        run: echo "ALWAYS ${{ steps.always.inputs.name }}" 
         with:
           name: qatools
         
