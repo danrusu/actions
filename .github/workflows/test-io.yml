@@ -32,8 +32,7 @@ jobs:
           echo "Out of TOKEN GROUP: $TEST"
           # cat --f
 
-      - name: run always
-        id: always
+      - name: create build.json artifact
         if: ${{ always() }}
         run: echo "${{ toJSON(job) }}" > ./build.json 
 
