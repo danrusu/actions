@@ -15,7 +15,7 @@ jobs:
         id: token
       - name: test
         run: |
-          echo ${{ steps.token.output.BUILD_TOKEN}} 
+          echo ${{ steps.token.outputs.BUILD_TOKEN}} 
 
   # test: 
   #   runs-on: ubuntu-latest
