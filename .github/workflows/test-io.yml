@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - run: echo "::echo::off"
+      - run: echo "::echo::on"
       
       - name: get-token
         run: ./token.sh
