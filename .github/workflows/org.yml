@@ -14,7 +14,12 @@ jobs:
           repository: madedotcom/alliance
           token: ${{ secrets.MADE_PAT }}
 
-      - run: ls
+      - uses: LouisBrunner/checks-action@v1.1.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Test XYZ
+          conclusion: ${{ job.status }}
       
 
     
