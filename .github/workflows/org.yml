@@ -19,7 +19,6 @@ jobs:
           repository: madedotcom/alliance
           token: ${{ secrets.MADE_PAT }}
 
-
       - uses: LouisBrunner/checks-action@v1.1.1
         if: "contains(github.event.head_commit.message, 'e2e')"
         with:
