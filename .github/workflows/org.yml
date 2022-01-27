@@ -4,7 +4,7 @@ on:
   - workflow_dispatch
 
 jobs:
-  demo1: 
+  e2e-test: 
     runs-on: ubuntu-latest
 
     steps:
