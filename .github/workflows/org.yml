@@ -8,18 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo ${{ event }}
+
       - name: checkout
         uses: actions/checkout@v2
         with:
           repository: madedotcom/alliance
           token: ${{ secrets.MADE_PAT }}
 
-      # - uses: LouisBrunner/checks-action@v1.1.1
-      #   if: always()
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     name: Test XYZ
-      #     conclusion: ${{ job.status }}
+      - uses: LouisBrunner/checks-action@v1.1.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Test XYZ
+          conclusion: ${{ job.status }}
+          #conclusion: failed
       
 
     
