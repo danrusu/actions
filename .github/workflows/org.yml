@@ -1,13 +1,18 @@
 name: org
 
 on: 
-  - workflow_dispatch
+  - push
 
 jobs:
   e2e-test: 
     runs-on: ubuntu-latest
 
     steps:
+      - env:
+          GITHUB_CONTEXT: ${{ toJson(github.event.head_commit.message) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
       - name: checkout
         uses: actions/checkout@v2
         with:
@@ -15,11 +20,16 @@ jobs:
           token: ${{ secrets.MADE_PAT }}
 
       - uses: LouisBrunner/checks-action@v1.1.1
-        if: always()
+        if: "contains(github.event.head_commit.message, 'e2e')"
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Test XYZ
+          name: E2E tests
           conclusion: ${{ job.status }}
       
-
+      - uses: LouisBrunner/checks-action@v1.1.1
+        if: "! contains(github.event.head_commit.message, 'e2e')"
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: E2E tests - skipped
+          conclusion: failure
     
