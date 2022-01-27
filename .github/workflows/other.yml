@@ -1,0 +1,20 @@
+name: org
+
+on: 
+  - workflow_dispatch
+
+jobs:
+  demo1: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          repository: madedotcom/alliance
+          token: ${{ secrets.MADE_PAT }}
+
+      - run: ls
+      
+
+    
