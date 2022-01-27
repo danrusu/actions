@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ event }}
+      - run: echo ${{ github.event }}
 
       - name: checkout
         uses: actions/checkout@v2
