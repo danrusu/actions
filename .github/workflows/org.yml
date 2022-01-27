@@ -1,7 +1,7 @@
 name: org
 
 on: 
-  - workflow_dispatch
+  - push
 
 jobs:
   e2e-test: 
